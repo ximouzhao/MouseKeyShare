@@ -1,3 +1,5 @@
+package xyz.ximou.mousekeyshare.example;
+
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 import org.jnativehook.mouse.NativeMouseEvent;
