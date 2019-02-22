@@ -5,6 +5,8 @@ import org.jnativehook.NativeHookException;
 import org.jnativehook.mouse.NativeMouseEvent;
 import org.jnativehook.mouse.NativeMouseInputListener;
 
+import java.awt.*;
+
 public class GlobalMouseListenerExample implements NativeMouseInputListener {
 	public void nativeMouseClicked(NativeMouseEvent e) {
 		System.out.println("Mouse Clicked: " + e.getClickCount());
@@ -19,12 +21,23 @@ public class GlobalMouseListenerExample implements NativeMouseInputListener {
 	}
 
 	public void nativeMouseMoved(NativeMouseEvent e) {
-		System.out.println("Mouse Moved: " + e.getX() + ", " + e.getY());
+
+	    System.out.println("Mouse Moved: " + e.getX() + ", " + e.getY());
+        try {
+            Robot robot=new Robot();
+            //robot.mouseMove(0,0);
+
+			//robot.mouseMove(600,1);
+        } catch (AWTException e1) {
+            e1.printStackTrace();
+        }
 	}
 
 	public void nativeMouseDragged(NativeMouseEvent e) {
 		System.out.println("Mouse Dragged: " + e.getX() + ", " + e.getY());
-	}
+
+
+    }
 
 	public static void main(String[] args) {
 		try {
@@ -36,7 +49,15 @@ public class GlobalMouseListenerExample implements NativeMouseInputListener {
 
 			System.exit(1);
 		}
-
+		try {
+			Robot robot=new Robot();
+			//robot.mouseMove(-1,-1);
+			//robot.mouseMove(-1,-1);
+			//robot.mouseMove(500,1);
+			robot.mouseMove(600,1);
+		} catch (AWTException e1) {
+			e1.printStackTrace();
+		}
 		// Construct the example object.
 		GlobalMouseListenerExample example = new GlobalMouseListenerExample();
 
