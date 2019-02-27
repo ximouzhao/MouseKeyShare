@@ -18,6 +18,12 @@ public class MouseKeyRobot {
     }
     static int screenWidth=(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     static int screenHeight=(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+
+    /**
+     * 防止100%的cpu占用
+     * @param x
+     * @param y
+     */
     public static void mouseMove(int x,int y){
         //按照120的刷新率来计算，每帧0.00833333333秒,调用过于频繁会导致系统死机
         long current=System.currentTimeMillis();
@@ -35,6 +41,7 @@ public class MouseKeyRobot {
         if(screenHeight>y){
             log.warn("纵坐标y超出范围："+y+",屏幕最大纵坐标y："+screenHeight);
         }
+        System.out.println("移动鼠标到"+difference+"毫秒，舍弃本次操作");
         robot.mouseMove(x,y);
     }
 }
