@@ -130,20 +130,25 @@ public class ConsumeEvent implements NativeKeyListener, NativeMouseInputListener
 			}else{
 				consumeEvent();
 			}
-			setReserved(nativeMouseEvent);
+
 		}else if(SystemInfo.getSystemType()==SystemType.WINDOWS){
 
 			if(this.reserved==0x01){
 				//当鼠标处于丢弃事件的情况下，首先计算此时鼠标应该在的位置。
 				int diffx=nativeMouseEvent.getX()-lastX;
 				int diffy=nativeMouseEvent.getY()-lastY;
+				System.out.println("diffx:"+diffx);
+				System.out.println("diffy:"+diffy);
 				virtualX+=diffx;
 				virtualY+=diffy;
+				System.out.println("virtualX:"+virtualX);
+				System.out.println("virtualY:"+virtualY);
 				if(virtualX>0){
 					callEventToNext();
 				}
 			}else{
 				//当鼠标到达左边界，并且未丢弃事件的情况下，记录此时的鼠标坐标,开始丢弃事件。
+				System.out.println("nativeMouseEvent.getX()"+(nativeMouseEvent.getX()<=0));
 				if(nativeMouseEvent.getX()<=0){
 					virtualX=lastX=nativeMouseEvent.getX();
 					virtualY=lastY=nativeMouseEvent.getY();
@@ -153,7 +158,7 @@ public class ConsumeEvent implements NativeKeyListener, NativeMouseInputListener
 		}else if(SystemInfo.getSystemType()==SystemType.LINUX||SystemInfo.getSystemType()==SystemType.OTHER){
 			System.out.println("不支持Linux以及其他系统");
 		}
-
+		setReserved(nativeMouseEvent);
 
 	}
 
@@ -226,6 +231,7 @@ public class ConsumeEvent implements NativeKeyListener, NativeMouseInputListener
 		if (e.getKeyCode() == NativeKeyEvent.VC_W) {
 			callEventToNext();
 		}
+		System.out.println("key Pressedw`12	"+e.getKeyCode());
 		setReserved(e);
 	}
 
