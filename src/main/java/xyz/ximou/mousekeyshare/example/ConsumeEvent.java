@@ -55,7 +55,7 @@ public class ConsumeEvent implements NativeKeyListener, NativeMouseInputListener
 	@Override
 	public void nativeMousePressed(NativeMouseEvent nativeMouseEvent) {
 		setReserved(nativeMouseEvent);
-		System.out.println("mouse pressed"+nativeMouseEvent.getPoint());
+		//System.out.println("mouse pressed"+nativeMouseEvent.getPoint());
 	}
 
 	@Override
@@ -65,6 +65,7 @@ public class ConsumeEvent implements NativeKeyListener, NativeMouseInputListener
 
 	@Override
 	public void nativeMouseMoved(NativeMouseEvent nativeMouseEvent) {
+		System.out.println("mouse moved"+nativeMouseEvent.getPoint());
 		setReserved(nativeMouseEvent);
 	}
 
