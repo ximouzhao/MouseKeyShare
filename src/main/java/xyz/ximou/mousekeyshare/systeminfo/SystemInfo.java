@@ -1,21 +1,21 @@
 package xyz.ximou.mousekeyshare.systeminfo;
 
 public class SystemInfo {
-    static SystemType systemType=null;
+    static SystemTypeEnum systemType=null;
     static {
         String osName = System.getProperty("os.name");
         System.out.println(osName);
         if (osName.startsWith("Mac OS")) {
-            systemType= SystemType.MAC_OS;
+            systemType= SystemTypeEnum.MAC_OS;
         } else if (osName.startsWith("Windows")) {
-            systemType= SystemType.WINDOWS;
+            systemType= SystemTypeEnum.WINDOWS;
         } else if(osName.startsWith("Linux")){
-            systemType= SystemType.LINUX;
+            systemType= SystemTypeEnum.LINUX;
         }else{
-            systemType= SystemType.OTHER;
+            systemType= SystemTypeEnum.OTHER;
         }
     }
-    public static SystemType getSystemType(){
+    public static SystemTypeEnum getSystemType(){
         return systemType;
     }
 }

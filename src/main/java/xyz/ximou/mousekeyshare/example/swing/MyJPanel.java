@@ -1,4 +1,4 @@
-package xyz.ximou.mousekeyshare.example;
+package xyz.ximou.mousekeyshare.example.swing;
 
 import java.awt.Color;
 import java.awt.Graphics;

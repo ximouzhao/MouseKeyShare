@@ -1,8 +1,9 @@
-package xyz.ximou.mousekeyshare.example;
+package xyz.ximou.mousekeyshare.example.swing;
 
 import javax.swing.JFrame;
  
 import com.sun.awt.AWTUtilities;//实现窗口透明很重要的一个包
+
 
 public class MyJFrame extends JFrame {
 	public MyJFrame() {

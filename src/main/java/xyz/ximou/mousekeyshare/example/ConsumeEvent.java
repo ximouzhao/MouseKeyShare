@@ -8,11 +8,10 @@ import org.jnativehook.keyboard.NativeKeyListener;
 import org.jnativehook.mouse.*;
 import xyz.ximou.mousekeyshare.robot.MouseKeyRobot;
 import xyz.ximou.mousekeyshare.systeminfo.SystemInfo;
-import xyz.ximou.mousekeyshare.systeminfo.SystemType;
+import xyz.ximou.mousekeyshare.systeminfo.SystemTypeEnum;
 
 import java.awt.*;
 import java.lang.reflect.Field;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
@@ -88,7 +87,7 @@ public class ConsumeEvent implements NativeKeyListener, NativeMouseInputListener
 		int width=(int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();
 		int height=(int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
 		System.out.println(Toolkit.getDefaultToolkit().getScreenSize().getSize());
-		if(SystemInfo.getSystemType()== SystemType.MAC_OS){
+		if(SystemInfo.getSystemType()== SystemTypeEnum.MAC_OS){
 			if(nativeMouseEvent.getX()==(width-1)){
 				MouseKeyRobot.mouseMove(0,nativeMouseEvent.getY());
 			}
@@ -131,7 +130,7 @@ public class ConsumeEvent implements NativeKeyListener, NativeMouseInputListener
 				consumeEvent();
 			}
 
-		}else if(SystemInfo.getSystemType()==SystemType.WINDOWS){
+		}else if(SystemInfo.getSystemType()== SystemTypeEnum.WINDOWS){
 
 			if(this.reserved==0x01){
 				//当鼠标处于丢弃事件的情况下，首先计算此时鼠标应该在的位置。
@@ -155,7 +154,7 @@ public class ConsumeEvent implements NativeKeyListener, NativeMouseInputListener
 					consumeEvent();
 				}
 			}
-		}else if(SystemInfo.getSystemType()==SystemType.LINUX||SystemInfo.getSystemType()==SystemType.OTHER){
+		}else if(SystemInfo.getSystemType()== SystemTypeEnum.LINUX||SystemInfo.getSystemType()== SystemTypeEnum.OTHER){
 			System.out.println("不支持Linux以及其他系统");
 		}
 		setReserved(nativeMouseEvent);

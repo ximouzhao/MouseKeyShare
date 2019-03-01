@@ -1,6 +1,6 @@
 package xyz.ximou.mousekeyshare.systeminfo;
 
-public enum SystemType {
+public enum SystemTypeEnum {
     WINDOWS,
     LINUX,
     MAC_OS,

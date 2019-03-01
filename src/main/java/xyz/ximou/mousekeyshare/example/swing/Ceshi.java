@@ -1,9 +1,7 @@
-package xyz.ximou.mousekeyshare.example;
+package xyz.ximou.mousekeyshare.example.swing;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
- 
+
 import com.sun.awt.AWTUtilities;
  
 /*导入 AWTUtilities可能会提示：访问限制：由于对必需的库 C:\Program Files\Java\jre6\lib\rt.jar 具有一定限制，因此无法访问类型 AWTUtilities，请到eclipse进行设置：窗口》首选项》java》编译器》错误警告   选择 代码样式》访问外层不可访问成员》   把错误修改成功 警告

@@ -1,4 +1,4 @@
-package xyz.ximou.mousekeyshare.example;
+package xyz.ximou.mousekeyshare.example.swing;
 
 import javax.swing.*;
 import java.awt.*;
